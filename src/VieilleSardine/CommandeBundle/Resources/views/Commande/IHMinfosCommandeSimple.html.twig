@@ -1,0 +1,141 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+* {
+
+font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	
+	
+}
+.first {
+	text-align: center;
+	margin:auto;
+}
+
+.labelfirst {
+	float:left;
+	vertical-align: middle;
+}
+
+.margin{
+	margin-left:300px; 
+	}
+
+ .styleBouton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:20px;
+	width:300px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.classname:active {
+	position:relative;
+	top:1px;
+}
+</style>
+
+<div style="float:left;">
+	<a href="catalogue.php">Catalogue</a> |
+	<a href="commandeRapide.php">Commande rapide</a>
+</div>
+<div style="float:right;">
+	<a href="connexion.php">Connexion</a> | 
+	<a href="panier.php">Mon Panier</a>
+</div>
+	
+<br>
+<br>
+<br>
+<center>
+<table BORDER="1">
+<br>
+   <caption>Récapitulatif de la commande</caption>
+<br>
+<br>
+   <thead> <!-- En-tête du tableau -->
+       <tr>
+           <th>Produit</th>
+           <th>Quantité</th>
+           <th>Prix Unitaire</th>
+		   <th>Prix Total</th>
+		   <th>Supprimer</th>
+		   
+       </tr>
+   </thead>
+  </table>
+  <br>
+  <br>
+  <br>
+  Vos informations de livraison
+  <br>
+  <br>
+  <br>
+  </center>
+  <div class="first">
+ <div class="labelfirst">Adresse de livraison&nbsp;&nbsp;&nbsp;&nbsp;</div>
+ <div class="labelfirst">
+	<SELECT name="listeAdresse" size="1">
+		<OPTION>Adresse personnelle</OPTION>
+		<OPTION>Adresse professionnelle</OPTION>
+		<OPTION>Autre</OPTION>
+	</SELECT>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" name="changerAd" value="Changer d'adresse" class="styleBouton">
+ </div>  
+ </div>  
+ <br>
+ <br>
+ <br>
+ <form>
+ <table>
+ <tr><td>Nom:</td><td><input type="text"></td></tr>
+ <tr><td>Prénom:</td><td><input type="text"></td></tr>
+ <tr><td>Adresse:</td><td><input type="text"></td></tr>
+ <tr><td>Complément d'adresse:</td><td><input type="text"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>Le mail de confimation sera envoyé à:</td></tr>
+ <tr><td>Code postal:</td><td><input type="text"></td></tr>
+ <tr><td>Ville:</td><td><input type="text"></td></tr>
+ <tr><td>Pays:</td><td><input type="text"></td></tr>
+ </table>
+ <br>
+ <br>
+ <br>
+ <div class="margin"><input type="submit" name="confPaiement" value="Confirmer et procéder au paiement" class="styleBouton">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="retour" value="Retour à l'écran précédent" class="styleBouton">
+</div>
+</form>
+ </head>
+</meta>

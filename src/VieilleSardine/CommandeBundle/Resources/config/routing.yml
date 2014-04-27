@@ -13,3 +13,7 @@ ajout_produit_commande_vpc:
 commande_groupee:
     pattern: /commandeGroupe
     defaults: { _controller: VieilleSardineCommandeBundle:CommandeGroupe:index }
+
+service_VPC:
+	pattern: /serviceVPC
+	defaults: { _controller: VieilleSardineCommandeBundle:Commande:menuVPC }

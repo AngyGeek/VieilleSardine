@@ -33,6 +33,19 @@ class CommandeController extends Controller
             
         
     }
+
+    public function menuVPC(){
+        return $this->render('VieilleSardineCommandeBundle:Commande:IHMserviceVPC.html.twig');
+    }
+
+     public function infoCommandeSimple(){
+        return $this->render('VieilleSardineCommandeBundle:Commande:IHMinfosCommandeSimple.html.twig');
+    }
+
+     public function confirmationCommande(){
+        return $this->render('VieilleSardineCommandeBundle:Commande:IHMconfirmationCommande.html.twig');
+    }
+    
     
     // Méthode pour retrouver les attributs d'un produit
     public function getInfoProduitAction($id)
