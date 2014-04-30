@@ -35,18 +35,25 @@ class CommandeController extends Controller
     }
 
     public function menuVPC(){
-        return $this->render('VieilleSardineCommandeBundle:Commande:IHMserviceVPC.html.twig');
+        return $this->render('VieilleSardineCommandeBundle:Commande:IHMserviceVPC.html.twig'); //afficher la vue
     }
 
-     public function infoCommandeSimple(){
-        return $this->render('VieilleSardineCommandeBundle:Commande:IHMinfosCommandeSimple.html.twig');
+     public function infoCommandeSimpleAction(){
+       $repo = $this->getDoctrine()->getManager()->getRepository("VeilleSardineUserBundle:Client");
+       $clients = $repo->findAll();
+       var_dump($clients);
+        return $this->render('VieilleSardineCommandeBundle:Commande:IHMinfosCommandeSimple.html.twig', array('resultat' => $toto));
     }
 
-     public function confirmationCommande(){
+     public function confirmationCommandeAction(){
         return $this->render('VieilleSardineCommandeBundle:Commande:IHMconfirmationCommande.html.twig');
     }
     
-    
+    public function getInfoClient(){
+        
+    }
+
+
     // Méthode pour retrouver les attributs d'un produit
     public function getInfoProduitAction($id)
     {

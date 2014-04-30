@@ -133,67 +133,84 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/hello')) {
-            // vieille_sardine_retour_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_retour_homepage')), array (  '_controller' => 'VieilleSardine\\RetourBundle\\Controller\\RetourController::indexAction',));
+        // vieille_sardine_catalogue_homepage
+        if (rtrim($pathinfo, '/') === '/catalogue') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'vieille_sardine_catalogue_homepage');
             }
 
-            // vieille_sardine_stock_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_stock_homepage')), array (  '_controller' => 'VieilleSardine\\StockBundle\\Controller\\StockController::indexAction',));
-            }
+            return array (  '_controller' => 'VieilleSardine\\CatalogueBundle\\Controller\\CatalogueController::indexAction',  '_route' => 'vieille_sardine_catalogue_homepage',);
+        }
 
+        // vieille_sardine_retour_homepage
+        if (0 === strpos($pathinfo, '/retour/hello') && preg_match('#^/retour/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_retour_homepage')), array (  '_controller' => 'VieilleSardine\\RetourBundle\\Controller\\RetourController::indexAction',));
+        }
+
+        // vieille_sardine_stock_homepage
+        if (0 === strpos($pathinfo, '/stock/hello') && preg_match('#^/stock/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_stock_homepage')), array (  '_controller' => 'VieilleSardine\\StockBundle\\Controller\\StockController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/p')) {
             // vieille_sardine_paiement_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/paiment/hello') && preg_match('#^/paiment/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_paiement_homepage')), array (  '_controller' => 'VieilleSardinePaiementBundle:Default:index',));
             }
 
             // vieille_sardine_produit_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/produit/hello') && preg_match('#^/produit/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_produit_homepage')), array (  '_controller' => 'VieilleSardine\\ProduitBundle\\Controller\\ProduitController::indexAction',));
             }
 
-            // vieille_sardine_livraison_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_livraison_homepage')), array (  '_controller' => 'VieilleSardine\\LivraisonBundle\\Controller\\LivraisonController::indexAction',));
-            }
-
-            // vieille_sardine_panier_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_panier_homepage')), array (  '_controller' => 'VieilleSardine\\PanierBundle\\Controller\\PanierController::indexAction',));
-            }
-
         }
 
-        // send_mail
-        if (0 === strpos($pathinfo, '/send_mail') && preg_match('#^/send_mail/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'send_mail')), array (  '_controller' => 'VieilleSardine\\UserBundle\\Controller\\MailController::sendMailAction',));
+        // vieille_sardine_livraison_homepage
+        if (0 === strpos($pathinfo, '/livraison/hello') && preg_match('#^/livraison/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_livraison_homepage')), array (  '_controller' => 'VieilleSardine\\LivraisonBundle\\Controller\\LivraisonController::indexAction',));
         }
 
-        // inscription
-        if ($pathinfo === '/inscription') {
-            return array (  '_controller' => 'VieilleSardine\\UserBundle\\Controller\\UserController::inscriptionAction',  '_route' => 'inscription',);
-        }
-
-        // vieille_sardine_commande_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'vieille_sardine_commande_homepage');
-            }
-
-            return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::indexAction',  '_route' => 'vieille_sardine_commande_homepage',);
-        }
-
-        // ajout_produit_commande_vpc
-        if ($pathinfo === '/ajoutProduit') {
-            return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::CreerFormVPCAction',  '_route' => 'ajout_produit_commande_vpc',);
+        // vieille_sardine_panier_homepage
+        if (0 === strpos($pathinfo, '/panier/hello') && preg_match('#^/panier/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'vieille_sardine_panier_homepage')), array (  '_controller' => 'VieilleSardine\\PanierBundle\\Controller\\PanierController::indexAction',));
         }
 
         if (0 === strpos($pathinfo, '/co')) {
-            // commande_groupee
-            if ($pathinfo === '/commandeGroupe') {
-                return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeGroupeController::indexAction',  '_route' => 'commande_groupee',);
+            if (0 === strpos($pathinfo, '/commande')) {
+                // vieille_sardine_commande_homepage
+                if (rtrim($pathinfo, '/') === '/commande') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'vieille_sardine_commande_homepage');
+                    }
+
+                    return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::indexAction',  '_route' => 'vieille_sardine_commande_homepage',);
+                }
+
+                // ajout_produit_commande_vpc
+                if ($pathinfo === '/commande/ajoutProduit') {
+                    return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::CreerFormVPCAction',  '_route' => 'ajout_produit_commande_vpc',);
+                }
+
+                // commande_groupee
+                if ($pathinfo === '/commande/commandeGroupe') {
+                    return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeGroupeController::indexAction',  '_route' => 'commande_groupee',);
+                }
+
+                // service_VPC
+                if ($pathinfo === '/commande/serviceVPC') {
+                    return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::menuVPCAction',  '_route' => 'service_VPC',);
+                }
+
+                // info_commande_simple
+                if ($pathinfo === '/commande/infoCommandeSimple') {
+                    return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::infoCommandeSimpleActionAction',  '_route' => 'info_commande_simple',);
+                }
+
+                // confirmation_commande
+                if ($pathinfo === '/commande/confirmationCommande') {
+                    return array (  '_controller' => 'VieilleSardine\\CommandeBundle\\Controller\\CommandeController::confirmationCommandeAction',  '_route' => 'confirmation_commande',);
+                }
+
             }
 
             // fos_user_security_login

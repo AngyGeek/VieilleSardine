@@ -536,7 +536,7 @@ class appDevDebugProjectContainer extends Container
         $c = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
         $c->addEventSubscriber(new \FOS\UserBundle\Doctrine\Orm\UserListener($this));
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'vieille_sardine', 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driverOptions' => array()), $b, $c, array('enum' => 'string'));
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'la_vieille_sardine', 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driverOptions' => array()), $b, $c, array('enum' => 'string'));
     }
 
     /**
@@ -704,7 +704,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['faker.generator'] = $instance = call_user_func(array('Faker\\Factory', 'create'), 'en_US');
 
-        $instance->seed(25694);
+        $instance->seed(9222);
 
         return $instance;
     }
@@ -2141,16 +2141,16 @@ class appDevDebugProjectContainer extends Container
 
         $m = new \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices(array(0 => $c), 'ThisTokenIsNotSoSecretChangeIt', 'main', array('path' => '/', 'name' => 'REMEMBERME', 'lifetime' => 31536000, 'domain' => NULL, 'secure' => false, 'httponly' => true, 'always_remember_me' => false, 'remember_me_parameter' => '_remember_me'), $a);
 
-        $n = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $l, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($l, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => 'fos_user_security_logout'));
+        $n = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $l, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($l, '/catalogue'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => 'fos_user_security_logout'));
         $n->addHandler($m);
 
-        $o = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($l, array('login_path' => 'fos_user_security_login', 'default_target_path' => '/', 'always_use_default_target_path' => false, 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $o = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($l, array('login_path' => 'fos_user_security_login', 'default_target_path' => '/catalogue', 'always_use_default_target_path' => false, 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $o->setProviderKey('main');
 
         $p = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $l, 'main', $o, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $l, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, $this->get('form.csrf_provider'));
         $p->setRememberMeServices($m);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $n, 3 => $p, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $m, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53552798c4ee1', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $l, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $n, 3 => $p, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $m, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5361256a398b4', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $l, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3264,6 +3264,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('xlf', 'C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\PaiementBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', 'C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\StockBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', 'C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\RetourBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\CatalogueBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
 
         return $instance;
     }
@@ -3350,6 +3351,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\PaiementBundle/Resources/views', 'VieilleSardinePaiement');
         $instance->addPath('C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\StockBundle/Resources/views', 'VieilleSardineStock');
         $instance->addPath('C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\RetourBundle/Resources/views', 'VieilleSardineRetour');
+        $instance->addPath('C:\\wamp\\www\\VieilleSardine\\src\\VieilleSardine\\CatalogueBundle/Resources/views', 'VieilleSardineCatalogue');
         $instance->addPath('C:\\wamp\\www\\VieilleSardine\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\wamp\\www\\VieilleSardine\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/wamp/www/VieilleSardine/app/Resources/views');
@@ -3621,7 +3623,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53552798c4ee1')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username_email'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5361256a398b4')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3788,6 +3790,7 @@ class appDevDebugProjectContainer extends Container
                 'VieilleSardinePaiementBundle' => 'VieilleSardine\\PaiementBundle\\VieilleSardinePaiementBundle',
                 'VieilleSardineStockBundle' => 'VieilleSardine\\StockBundle\\VieilleSardineStockBundle',
                 'VieilleSardineRetourBundle' => 'VieilleSardine\\RetourBundle\\VieilleSardineRetourBundle',
+                'VieilleSardineCatalogueBundle' => 'VieilleSardine\\CatalogueBundle\\VieilleSardineCatalogueBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3798,7 +3801,7 @@ class appDevDebugProjectContainer extends Container
             'database_driver' => 'pdo_mysql',
             'database_host' => '127.0.0.1',
             'database_port' => NULL,
-            'database_name' => 'vieille_sardine',
+            'database_name' => 'la_vieille_sardine',
             'database_user' => 'root',
             'database_password' => NULL,
             'mailer_transport' => 'smtp',

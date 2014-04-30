@@ -15,5 +15,13 @@ commande_groupee:
     defaults: { _controller: VieilleSardineCommandeBundle:CommandeGroupe:index }
 
 service_VPC:
-	pattern: /serviceVPC
-	defaults: { _controller: VieilleSardineCommandeBundle:Commande:menuVPC }
+    pattern: /serviceVPC
+    defaults: { _controller: VieilleSardineCommandeBundle:Commande:menuVPC }
+
+info_commande_simple:
+    pattern: /infoCommandeSimple
+    defaults: { _controller: VieilleSardineCommandeBundle:Commande:infoCommandeSimpleAction }
+
+confirmation_commande:
+    pattern: /confirmationCommande
+    defaults: { _controller: VieilleSardineCommandeBundle:Commande:confirmationCommande }

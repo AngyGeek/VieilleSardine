@@ -25,6 +25,7 @@
       <parameter key="VieilleSardinePaiementBundle">VieilleSardine\PaiementBundle\VieilleSardinePaiementBundle</parameter>
       <parameter key="VieilleSardineStockBundle">VieilleSardine\StockBundle\VieilleSardineStockBundle</parameter>
       <parameter key="VieilleSardineRetourBundle">VieilleSardine\RetourBundle\VieilleSardineRetourBundle</parameter>
+      <parameter key="VieilleSardineCatalogueBundle">VieilleSardine\CatalogueBundle\VieilleSardineCatalogueBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -35,7 +36,7 @@
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">vieille_sardine</parameter>
+    <parameter key="database_name">la_vieille_sardine</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
@@ -2072,6 +2073,12 @@
         <argument>fr</argument>
         <argument>messages</argument>
       </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>C:\wamp\www\VieilleSardine\src\VieilleSardine\CatalogueBundle/Resources/translations\messages.fr.xlf</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
     </service>
     <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
       <tag name="translation.loader" alias="php"/>
@@ -2829,7 +2836,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>53552798c4ee1</argument>
+            <argument>5361256a398b4</argument>
           </service>
         </argument>
       </argument>
@@ -3009,7 +3016,7 @@
                     <argument type="service" id="router" on-invalid="null"/>
                   </service>
                 </argument>
-                <argument>/</argument>
+                <argument>/catalogue</argument>
               </service>
             </argument>
             <argument type="collection">
@@ -3064,7 +3071,7 @@
                 </argument>
                 <argument type="collection">
                   <argument key="login_path">fos_user_security_login</argument>
-                  <argument key="default_target_path">/</argument>
+                  <argument key="default_target_path">/catalogue</argument>
                   <argument key="always_use_default_target_path">false</argument>
                   <argument key="target_path_parameter">_target_path</argument>
                   <argument key="use_referer">false</argument>
@@ -3160,7 +3167,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>53552798c4ee1</argument>
+            <argument>5361256a398b4</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3516,7 +3523,7 @@
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">vieille_sardine</argument>
+        <argument key="dbname">la_vieille_sardine</argument>
         <argument key="user">root</argument>
         <argument key="password">null</argument>
         <argument key="charset">UTF8</argument>
@@ -4030,7 +4037,7 @@
     <service id="faker.generator" class="Faker\Factory" factory-method="create">
       <argument>en_US</argument>
       <call method="seed">
-        <argument>25694</argument>
+        <argument>9222</argument>
       </call>
     </service>
     <service id="faker.populator" class="Faker\ORM\Doctrine\Populator">
@@ -4320,6 +4327,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\VieilleSardine\src\VieilleSardine\RetourBundle/Resources/views</argument>
         <argument>VieilleSardineRetour</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\VieilleSardine\src\VieilleSardine\CatalogueBundle/Resources/views</argument>
+        <argument>VieilleSardineCatalogue</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\VieilleSardine\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>

@@ -49,7 +49,7 @@ class __TwigTemplate_da1d5c952d1ca0ef29e19b3ce4a682ec9c86b4b8377c63f31e246a55c75
                 <tr>
                     <td><a href=\"";
         // line 24
-        echo $this->env->getExtension('routing')->getPath("vieille_sardine_commande_homepage");
+        echo $this->env->getExtension('routing')->getPath("vieille_sardine_catalogue_homepage");
         echo "\">Catalogue</a></td>
                     <td><a href=\"\">Commande rapide</a></td>
                     <td>

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "df916b1c132b0df35de1376ed34c5530",
+    "hash": "cd2596bf761e6a30a69f7149eaa6bb73",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -624,12 +624,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "fa6022638e10342f5244181675e4bcd4955fc2ff"
+                "reference": "e4c000a9b19096be0135d0773b56f7c757c93542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/fa6022638e10342f5244181675e4bcd4955fc2ff",
-                "reference": "fa6022638e10342f5244181675e4bcd4955fc2ff",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e4c000a9b19096be0135d0773b56f7c757c93542",
+                "reference": "e4c000a9b19096be0135d0773b56f7c757c93542",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +684,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-04-05 11:45:34"
+            "time": "2014-04-08 21:21:16"
         },
         {
             "name": "fzaninotto/faker",
